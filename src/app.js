@@ -36,9 +36,19 @@ function displayTemperature(response) {
     );
 }
 
-
+function search(city) {
 let apiKey = "3a5b83d2290ca8aeea736a82a10e7ea7";
-let city = "Sao Paulo"
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+search("Sao Paulo");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
