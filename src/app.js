@@ -22,6 +22,8 @@ function displayTemperature(response) {
     let dateElement = document.querySelector("#date");
     let iconElement = document.querySelector("#icon");
 
+    celsiusTemperature = response.data.main.temp;
+
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
@@ -48,7 +50,34 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
-search("Sao Paulo");
+function displayImperialMetric(event) {
+    event.preventDefault();
+    celsiuslLink.classList.remove("active");
+    imperialLink.classList.add("active");
+    let imperialMetric = (celsiusTemperature * 9) / 5 + 32;
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(imperialMetric);
+
+}
+
+function displaycelsiusTemperature(event) {
+    event.preventDefault();
+    celsiuslLink.classList.add("active");
+    imperialLink.classList.remove("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+}
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let imperialLink = document.querySelector("#imperial-link");
+imperialLink.addEventListener("click", displayImperialMetric);
+
+let celsiuslLink = document.querySelector("#celsius-link");
+celsiuslLink.addEventListener("click", displaycelsiusTemperature);
+
+search("Sao Paulo");
