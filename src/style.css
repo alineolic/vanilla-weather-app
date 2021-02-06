@@ -74,3 +74,33 @@ li::first-letter {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+
+.weather-forecast {
+  margin-top: 50px;
+}
+
+.weather-forecast h3 {
+  color: yellow;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  height: 15px;
+  line-height: 15px;
+  padding-top: 8px;
+}
+
+.weather-forecast img {
+  display: block;
+  margin: 0 auto;
+  height: 48px;
+  width: 48px;
+}
+
+.weather-forecast-temperature {
+  text-align: center;
+  color: pink;
+  font-size: 16px;
+  height: auto;
+  line-height: 15px;
+  white-space: nowrap;
+}
