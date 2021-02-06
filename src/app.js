@@ -111,4 +111,4 @@ imperialLink.addEventListener("click", displayImperialMetric);
 let celsiuslLink = document.querySelector("#celsius-link");
 celsiuslLink.addEventListener("click", displaycelsiusTemperature);
 
-search("Sao Paulo");
+search("London");
